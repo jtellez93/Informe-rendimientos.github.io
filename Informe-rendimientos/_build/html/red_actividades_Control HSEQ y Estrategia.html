@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Atenci\u00f3n a Solicitudes", "label": "Atenci\u00f3n a Solicitudes", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Solicitudes especiales", "label": "Solicitudes especiales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de procesos", "label": "Gesti\u00f3n de procesos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gestiones internas", "label": "Gestiones internas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Sistema de Gesti\u00f3n Integral", "label": "Sistema de Gesti\u00f3n Integral", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de Reporting", "label": "Gesti\u00f3n de Reporting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "label": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Reportes Internos", "label": "Reportes Internos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Slides o material reuniones internas", "label": "Slides o material reuniones internas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de correos", "label": "Gesti\u00f3n de correos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Ausencia laboral", "label": "Ausencia laboral", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Tiempo muerto", "label": "Tiempo muerto", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Otro tipo de permiso", "label": "Otro tipo de permiso", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Estructuraci\u00f3n de procesos", "label": "Estructuraci\u00f3n de procesos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Estandarizaci\u00f3n", "label": "Estandarizaci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Capacidad", "label": "Capacidad", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Talento humano y ausentismo", "label": "Talento humano y ausentismo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cultura vertebra", "label": "Cultura vertebra", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n capacitaciones", "label": "Gesti\u00f3n capacitaciones", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Planeaci\u00f3n Estrat\u00e9gica", "label": "Planeaci\u00f3n Estrat\u00e9gica", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Estrategia empresa", "label": "Estrategia empresa", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Direcci\u00f3n Equipo", "label": "Direcci\u00f3n Equipo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Coordinaci\u00f3n \u00c1reas", "label": "Coordinaci\u00f3n \u00c1reas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Mesa de Trabajo", "label": "Mesa de Trabajo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Mesa de trabajo", "label": "Mesa de trabajo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Informaci\u00f3n Contrato", "label": "Informaci\u00f3n Contrato", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Estructura de Procesos", "label": "Estructura de Procesos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "An\u00e1lisis de Actividades", "label": "An\u00e1lisis de Actividades", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "SG-SST (Seguridad y Salud en el Trabajo)", "label": "SG-SST (Seguridad y Salud en el Trabajo)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "SGC (Calidad)", "label": "SGC (Calidad)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "SGA (Ambiental)", "label": "SGA (Ambiental)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Reporting", "label": "Reporting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Atenci\u00f3n al cliente", "label": "Atenci\u00f3n al cliente", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Retos del Mes", "label": "Retos del Mes", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Comit\u00e9 Integrado", "label": "Comit\u00e9 Integrado", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "An\u00e1lisis de informaci\u00f3n", "label": "An\u00e1lisis de informaci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Break", "label": "Break", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Documentos contractuales", "label": "Documentos contractuales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Registro de actividades", "label": "Registro de actividades", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Atenci\u00f3n a Solicitudes", "to": "Solicitudes especiales", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gestiones internas", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Sistema de Gesti\u00f3n Integral", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n de Reporting", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "width": 1}, {"arrows": "to", "from": "Reportes Internos", "to": "Slides o material reuniones internas", "width": 1}, {"arrows": "to", "from": "Gestiones internas", "to": "Gesti\u00f3n de correos", "width": 1}, {"arrows": "to", "from": "Ausencia laboral", "to": "Tiempo muerto", "width": 1}, {"arrows": "to", "from": "Ausencia laboral", "to": "Otro tipo de permiso", "width": 1}, {"arrows": "to", "from": "Estructuraci\u00f3n de procesos", "to": "Estandarizaci\u00f3n", "width": 1}, {"arrows": "to", "from": "Estructuraci\u00f3n de procesos", "to": "Capacidad", "width": 1}, {"arrows": "to", "from": "Talento humano y ausentismo", "to": "Cultura vertebra", "width": 1}, {"arrows": "to", "from": "Talento humano y ausentismo", "to": "Ausencia laboral", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "to": "Gesti\u00f3n capacitaciones", "width": 1}, {"arrows": "to", "from": "Planeaci\u00f3n Estrat\u00e9gica", "to": "Estrategia empresa", "width": 1}, {"arrows": "to", "from": "Planeaci\u00f3n Estrat\u00e9gica", "to": "Direcci\u00f3n Equipo", "width": 1}, {"arrows": "to", "from": "Planeaci\u00f3n Estrat\u00e9gica", "to": "Coordinaci\u00f3n \u00c1reas", "width": 1}, {"arrows": "to", "from": "Estandarizaci\u00f3n", "to": "Mesa de Trabajo", "width": 1}, {"arrows": "to", "from": "Estandarizaci\u00f3n", "to": "Mesa de trabajo", "width": 1}, {"arrows": "to", "from": "Estandarizaci\u00f3n", "to": "Informaci\u00f3n Contrato", "width": 1}, {"arrows": "to", "from": "Coordinaci\u00f3n \u00c1reas", "to": "Estructura de Procesos", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Reporting", "to": "An\u00e1lisis de Actividades", "width": 1}, {"arrows": "to", "from": "Sistema de Gesti\u00f3n Integral", "to": "SG-SST (Seguridad y Salud en el Trabajo)", "width": 1}, {"arrows": "to", "from": "Sistema de Gesti\u00f3n Integral", "to": "SGC (Calidad)", "width": 1}, {"arrows": "to", "from": "Sistema de Gesti\u00f3n Integral", "to": "SGA (Ambiental)", "width": 1}, {"arrows": "to", "from": "Reporting", "to": "Reportes Internos", "width": 1}, {"arrows": "to", "from": "Atenci\u00f3n al cliente", "to": "Atenci\u00f3n a Solicitudes", "width": 1}, {"arrows": "to", "from": "Estrategia empresa", "to": "Retos del Mes", "width": 1}, {"arrows": "to", "from": "Estrategia empresa", "to": "Comit\u00e9 Integrado", "width": 1}, {"arrows": "to", "from": "Capacidad", "to": "An\u00e1lisis de informaci\u00f3n", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Break", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Documentos contractuales", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Registro de actividades", "width": 1}, {"arrows": "to", "from": "Direcci\u00f3n Equipo", "to": "Mesa de Trabajo", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

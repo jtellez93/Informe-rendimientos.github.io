@@ -1,0 +1,1491 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Rendimientos Vertebra &#8212; Informe de rendimiento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Vertebra';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Rendimientos CC&amp;O" href="CC%26O.html" />
+    <link rel="prev" title="Introducción" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rendimientos Vertebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC%26O.html">Rendimientos CC&amp;O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecoeficiencia.html">Rendimientos Ecoeficiencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pagos.html">Rendimientos Pagos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proyectos_especiales.html">Rendimientos Proyectos especiales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BIM.html">Rendimientos Inteligencia de negocios y mercados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FuturoV.html">Rendimientos Futuro V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TH.html">Rendimientos Talento Humano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HSEQ.html">Rendimientos Control HSEQ y Estrategia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FVertebra.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Vertebra.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Rendimientos Vertebra</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-descriptivo">Análisis descriptivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-ciclos">Comparacion ciclos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesos">Procesos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contratos">Contratos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-general">Actividad general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-especifica">Actividad especifica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-entre-variables">Relación entre variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-actividades">Relacion actividades</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-por-proceso">Relación por proceso</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rendimientos-vertebra">
+<h1>Rendimientos Vertebra<a class="headerlink" href="#rendimientos-vertebra" title="Permalink to this heading">#</a></h1>
+<p>23 de agosto del 2023</p>
+<section id="analisis-descriptivo">
+<h2>Análisis descriptivo<a class="headerlink" href="#analisis-descriptivo" title="Permalink to this heading">#</a></h2>
+<section id="comparacion-ciclos">
+<h3>Comparacion ciclos<a class="headerlink" href="#comparacion-ciclos" title="Permalink to this heading">#</a></h3>
+<p>Se muestra el total de horas consumidas historico.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/a5b6a8118f45d310ebfded0120af95dfa94ed4e6ce50ab0af81d053f2b228733.png" src="_images/a5b6a8118f45d310ebfded0120af95dfa94ed4e6ce50ab0af81d053f2b228733.png" />
+</div>
+</div>
+<p>Se muestra el total histórico de colaboradores con registro de actividades.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/3218a95001ff34113b28d2e03e78c7916dd8bb7886ff4e837306807e7f365647.png" src="_images/3218a95001ff34113b28d2e03e78c7916dd8bb7886ff4e837306807e7f365647.png" />
+</div>
+</div>
+</section>
+<section id="procesos">
+<h3>Procesos<a class="headerlink" href="#procesos" title="Permalink to this heading">#</a></h3>
+<p>Total horas por procesos</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Proceso</th>
+      <th>Hr_Implementadas</th>
+      <th>Porcentaje</th>
+      <th>Porcentaje_Acumulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Control de calidad y Optimizacion de Producto</td>
+      <td>1861.0</td>
+      <td>32.60</td>
+      <td>32.60</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Ecoeficiencia</td>
+      <td>1355.0</td>
+      <td>23.74</td>
+      <td>56.34</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Talento Humano</td>
+      <td>727.0</td>
+      <td>12.74</td>
+      <td>69.08</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Pagos</td>
+      <td>654.0</td>
+      <td>11.46</td>
+      <td>80.54</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Proyectos especiales</td>
+      <td>428.0</td>
+      <td>7.50</td>
+      <td>88.04</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Inteligencia de negocios y mercados</td>
+      <td>251.0</td>
+      <td>4.40</td>
+      <td>92.44</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Futuro V</td>
+      <td>249.0</td>
+      <td>4.36</td>
+      <td>96.80</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Control HSEQ y Estrategia</td>
+      <td>123.0</td>
+      <td>2.15</td>
+      <td>98.95</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Administrativa</td>
+      <td>60.0</td>
+      <td>1.05</td>
+      <td>100.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/19db6f92263b9cd3003547622c6ff3b7a0cdda1bc60e438ca03a7e1ece8bbabc.png" src="_images/19db6f92263b9cd3003547622c6ff3b7a0cdda1bc60e438ca03a7e1ece8bbabc.png" />
+</div>
+</div>
+</section>
+<section id="contratos">
+<h3>Contratos<a class="headerlink" href="#contratos" title="Permalink to this heading">#</a></h3>
+<p>Total HH  por contrato</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Contrato</th>
+      <th>Hr_Implementadas</th>
+      <th>Porcentaje</th>
+      <th>Porcentaje_Acumulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>48</th>
+      <td>Vertebra - N/A.</td>
+      <td>2588.0</td>
+      <td>45.36</td>
+      <td>45.36</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Davivienda - Pagos</td>
+      <td>786.0</td>
+      <td>13.77</td>
+      <td>59.13</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Davivienda - Ecoeficiencia</td>
+      <td>582.0</td>
+      <td>10.20</td>
+      <td>69.33</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Farmatodo - Ecoeficiencia</td>
+      <td>266.0</td>
+      <td>4.66</td>
+      <td>73.99</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>KFC - Ecoeficiencia</td>
+      <td>196.0</td>
+      <td>3.43</td>
+      <td>77.42</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>BBVA - Ecoeficiencia</td>
+      <td>168.0</td>
+      <td>2.94</td>
+      <td>80.36</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Grupo Vardí - Ecoeficiencia</td>
+      <td>143.0</td>
+      <td>2.51</td>
+      <td>82.87</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Dollarcity - Ecoeficiencia</td>
+      <td>123.0</td>
+      <td>2.16</td>
+      <td>85.03</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Bancoomeva - Ecoeficiencia</td>
+      <td>115.0</td>
+      <td>2.02</td>
+      <td>87.05</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Synlab - Pagos</td>
+      <td>107.0</td>
+      <td>1.88</td>
+      <td>88.93</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Mesofoods - Ecoeficiencia</td>
+      <td>89.0</td>
+      <td>1.56</td>
+      <td>90.49</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>C&amp;W Cartagena - Ecoeficiencia</td>
+      <td>89.0</td>
+      <td>1.56</td>
+      <td>92.05</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Audifarma - Ecoeficiencia</td>
+      <td>76.0</td>
+      <td>1.33</td>
+      <td>93.38</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Los coches - Ecoeficiencia</td>
+      <td>61.0</td>
+      <td>1.07</td>
+      <td>94.45</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Amarilo - Ecoeficiencia</td>
+      <td>57.0</td>
+      <td>1.00</td>
+      <td>95.45</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Acueducto de villavicencio - Fidelización</td>
+      <td>44.0</td>
+      <td>0.77</td>
+      <td>96.22</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Seguros Bolivar - Ecoeficiencia</td>
+      <td>40.0</td>
+      <td>0.70</td>
+      <td>96.92</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>CienCuadras - Pagos</td>
+      <td>37.0</td>
+      <td>0.65</td>
+      <td>97.57</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Jardin Plaza - Consultoria</td>
+      <td>27.0</td>
+      <td>0.47</td>
+      <td>98.04</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Racafe - Consultoria</td>
+      <td>24.0</td>
+      <td>0.42</td>
+      <td>98.46</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Friogan - Gestion energetica</td>
+      <td>22.0</td>
+      <td>0.39</td>
+      <td>98.85</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Kokoriko - Ecoeficiencia</td>
+      <td>22.0</td>
+      <td>0.39</td>
+      <td>99.24</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>EMSA - Fidelización</td>
+      <td>12.0</td>
+      <td>0.21</td>
+      <td>99.45</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Gravicon - Fidelización</td>
+      <td>12.0</td>
+      <td>0.21</td>
+      <td>99.66</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Mac center - Ecoeficiencia</td>
+      <td>5.0</td>
+      <td>0.09</td>
+      <td>99.75</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Unimeta - Fidelización</td>
+      <td>4.0</td>
+      <td>0.07</td>
+      <td>99.82</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Maderas el Vergel - Fidelización</td>
+      <td>3.0</td>
+      <td>0.05</td>
+      <td>99.87</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Casa del Kumis - Fidelización</td>
+      <td>3.0</td>
+      <td>0.05</td>
+      <td>99.92</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>FARMATODO - Ecoeficiencia</td>
+      <td>2.0</td>
+      <td>0.04</td>
+      <td>99.96</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Ladrillera del Meta - Consultoria</td>
+      <td>2.0</td>
+      <td>0.04</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Aceites Cimarron - Fidelización</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/50ed344933436cecbdcb8aad2a44c745501fbd7f266f98f979f395bb48ccdf4a.png" src="_images/50ed344933436cecbdcb8aad2a44c745501fbd7f266f98f979f395bb48ccdf4a.png" />
+</div>
+</div>
+<p>Horas por contrato por día</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/e126dbfe41756df4cec7730977c69cefe256c665e7fdd5f37c257e3ecd83451a.png" src="_images/e126dbfe41756df4cec7730977c69cefe256c665e7fdd5f37c257e3ecd83451a.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/d84d1bbb75b591af233aecb5f8cc6e06c1cef7824d30bac7b11f3e62679e3055.png" src="_images/d84d1bbb75b591af233aecb5f8cc6e06c1cef7824d30bac7b11f3e62679e3055.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="actividad-general">
+<h2>Actividad general<a class="headerlink" href="#actividad-general" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actividad_general</th>
+      <th>Hr_Implementadas</th>
+      <th>Porcentaje</th>
+      <th>Porcentaje_Acumulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Gestión de procesos</td>
+      <td>2938.0</td>
+      <td>51.47</td>
+      <td>51.47</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Talento humano y ausentismo</td>
+      <td>1013.0</td>
+      <td>17.75</td>
+      <td>69.22</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Planeación Estratégica</td>
+      <td>762.0</td>
+      <td>13.35</td>
+      <td>82.57</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Atención al cliente</td>
+      <td>511.0</td>
+      <td>8.95</td>
+      <td>91.52</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Reporting</td>
+      <td>307.0</td>
+      <td>5.38</td>
+      <td>96.90</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Estructuración de procesos</td>
+      <td>177.0</td>
+      <td>3.10</td>
+      <td>100.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/c6022202fd62d541b52aafbe95a37f2d3c84fd81da65cee7c3cbb4f82cf39ba0.png" src="_images/c6022202fd62d541b52aafbe95a37f2d3c84fd81da65cee7c3cbb4f82cf39ba0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/1a874ff5e7750965ddf65e04c3ef61b516f37c8d90938e4597b5031fe72bbdbf.png" src="_images/1a874ff5e7750965ddf65e04c3ef61b516f37c8d90938e4597b5031fe72bbdbf.png" />
+</div>
+</div>
+</section>
+<section id="objetivo-de-la-actividad">
+<h2>Objetivo de la actividad<a class="headerlink" href="#objetivo-de-la-actividad" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Objetivo_actividad</th>
+      <th>Hr_Implementadas</th>
+      <th>Porcentaje</th>
+      <th>Porcentaje_Acumulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Ausencia laboral</td>
+      <td>581.0</td>
+      <td>10.18</td>
+      <td>10.18</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Gestión planeación</td>
+      <td>433.0</td>
+      <td>7.59</td>
+      <td>17.77</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Cultura vertebra</td>
+      <td>403.0</td>
+      <td>7.06</td>
+      <td>24.83</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Gestiones internas</td>
+      <td>388.0</td>
+      <td>6.80</td>
+      <td>31.63</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Gestión de Pagos</td>
+      <td>382.0</td>
+      <td>6.70</td>
+      <td>38.33</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Vertebra Help</td>
+      <td>312.0</td>
+      <td>5.47</td>
+      <td>43.80</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Dirección Equipo</td>
+      <td>309.0</td>
+      <td>5.42</td>
+      <td>49.22</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Gestión Soluciones Técnicas</td>
+      <td>259.0</td>
+      <td>4.54</td>
+      <td>53.76</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Vertebra Help (cliente interno)</td>
+      <td>242.0</td>
+      <td>4.24</td>
+      <td>58.00</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Gestión de Hábitos</td>
+      <td>219.0</td>
+      <td>3.84</td>
+      <td>61.84</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Estrategia empresa</td>
+      <td>218.0</td>
+      <td>3.82</td>
+      <td>65.66</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Gestión de contratos</td>
+      <td>204.0</td>
+      <td>3.58</td>
+      <td>69.24</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Gestión Administrativa TH</td>
+      <td>201.0</td>
+      <td>3.52</td>
+      <td>72.76</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Gestión Futuro V</td>
+      <td>156.0</td>
+      <td>2.73</td>
+      <td>75.49</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Gestión de Reporting</td>
+      <td>139.0</td>
+      <td>2.44</td>
+      <td>77.93</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Alineación Estratégica</td>
+      <td>123.0</td>
+      <td>2.16</td>
+      <td>80.09</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Reportes Ecoeficiencia</td>
+      <td>120.0</td>
+      <td>2.10</td>
+      <td>82.19</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Coordinación Áreas</td>
+      <td>111.0</td>
+      <td>1.95</td>
+      <td>84.14</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Mesa de trabajo</td>
+      <td>110.0</td>
+      <td>1.93</td>
+      <td>86.07</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Estandarización</td>
+      <td>104.0</td>
+      <td>1.82</td>
+      <td>87.89</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Reportes Internos</td>
+      <td>95.0</td>
+      <td>1.67</td>
+      <td>89.56</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Atención a Solicitudes</td>
+      <td>89.0</td>
+      <td>1.56</td>
+      <td>91.12</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Gestión mercados y tarifas</td>
+      <td>84.0</td>
+      <td>1.47</td>
+      <td>92.59</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Gestión de Selección, Vinculación y Contratación</td>
+      <td>78.0</td>
+      <td>1.37</td>
+      <td>93.96</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Reportes Pagos</td>
+      <td>68.0</td>
+      <td>1.19</td>
+      <td>95.15</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Sistema de Gestión Integral</td>
+      <td>59.0</td>
+      <td>1.03</td>
+      <td>96.18</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Gestión Capacitación y desarrollo</td>
+      <td>34.0</td>
+      <td>0.60</td>
+      <td>96.78</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Modelos BI</td>
+      <td>31.0</td>
+      <td>0.54</td>
+      <td>97.32</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Instructivos</td>
+      <td>27.0</td>
+      <td>0.47</td>
+      <td>97.79</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Gestión Inducción - Reinducción</td>
+      <td>27.0</td>
+      <td>0.47</td>
+      <td>98.26</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Reportes Mercados y Tarifas</td>
+      <td>19.0</td>
+      <td>0.33</td>
+      <td>98.59</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Gestión Cultura y Bienestar</td>
+      <td>18.0</td>
+      <td>0.32</td>
+      <td>98.91</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Desvinculación</td>
+      <td>16.0</td>
+      <td>0.28</td>
+      <td>99.19</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Gestión de Desvinculación</td>
+      <td>12.0</td>
+      <td>0.21</td>
+      <td>99.40</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Sistema de Gestión</td>
+      <td>11.0</td>
+      <td>0.19</td>
+      <td>99.59</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Tableros BI</td>
+      <td>10.0</td>
+      <td>0.18</td>
+      <td>99.77</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Capacidad</td>
+      <td>6.0</td>
+      <td>0.11</td>
+      <td>99.88</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Reportes Soluciones Técnicas</td>
+      <td>4.0</td>
+      <td>0.07</td>
+      <td>99.95</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Cultura y bienestar</td>
+      <td>2.0</td>
+      <td>0.04</td>
+      <td>99.99</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Gestión Desempeño</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/dcb7707e9ccb9c8ab38874e100aa6f143e9b76b57a5e7d466581c0cce42b3bcc.png" src="_images/dcb7707e9ccb9c8ab38874e100aa6f143e9b76b57a5e7d466581c0cce42b3bcc.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/0deeb0f9f7019c036bc2c3ce3412bc096e00cc1d2f6eb30ea7334e47821b6881.png" src="_images/0deeb0f9f7019c036bc2c3ce3412bc096e00cc1d2f6eb30ea7334e47821b6881.png" />
+</div>
+</div>
+</section>
+<section id="actividad-especifica">
+<h2>Actividad especifica<a class="headerlink" href="#actividad-especifica" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actividad_especifica</th>
+      <th>Hr_Implementadas</th>
+      <th>Porcentaje</th>
+      <th>Porcentaje_Acumulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>155</th>
+      <td>Gestión de tickets</td>
+      <td>428.0</td>
+      <td>7.49</td>
+      <td>7.49</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Gestión facturas</td>
+      <td>319.0</td>
+      <td>5.59</td>
+      <td>13.08</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>Gestión de correos</td>
+      <td>297.0</td>
+      <td>5.20</td>
+      <td>18.28</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>Incapacidad</td>
+      <td>230.0</td>
+      <td>4.03</td>
+      <td>22.31</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>Vacaciones</td>
+      <td>228.0</td>
+      <td>3.99</td>
+      <td>26.30</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>Entrevista de Retiro</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.18</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Gestión Liquidación</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.20</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Análisis de información</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.22</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Asignación de Pagos</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Actualización documentos colaboradoradores</td>
+      <td>1.0</td>
+      <td>0.02</td>
+      <td>100.26</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="_images/f67c3fc3f9e7ac077bac8ba772f114904b6daf341cd9eaff4132623995ac6bc0.png" src="_images/f67c3fc3f9e7ac077bac8ba772f114904b6daf341cd9eaff4132623995ac6bc0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/582f9b4dbe095f97337a170a15c2f417925d1ce1580c8d279d7dc805342a5fa6.png" src="_images/582f9b4dbe095f97337a170a15c2f417925d1ce1580c8d279d7dc805342a5fa6.png" />
+</div>
+</div>
+</section>
+<section id="relacion-entre-variables">
+<h2>Relación entre variables<a class="headerlink" href="#relacion-entre-variables" title="Permalink to this heading">#</a></h2>
+<p>En este apartado se analiza como interactuan los tipos de actividad y adicional los roles con las actividades especificas.</p>
+<section id="relacion-actividades">
+<h3>Relacion actividades<a class="headerlink" href="#relacion-actividades" title="Permalink to this heading">#</a></h3>
+<p>Se muestra la relacion entre Actividad_general, Objetivo_actividad y Actividad_especifica, en este caso solo para el top 15 de actividades especificas.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: When  cdn_resources is &#39;local&#39; jupyter notebook has issues displaying graphics on chrome/safari. Use cdn_resources=&#39;in_line&#39; or cdn_resources=&#39;remote&#39; if you have issues viewing graphics in a notebook.
+</pre></div>
+</div>
+</div>
+</div>
+<iframe src="red_actividades_vertebra.html" width="800" height="600"></iframe></section>
+<section id="relacion-por-proceso">
+<h3>Relación por proceso<a class="headerlink" href="#relacion-por-proceso" title="Permalink to this heading">#</a></h3>
+<p>Aqui se muestra como se relacionan los procesos con las actividades y con los contratos.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<iframe src="sankey_vertebra.html" width="800" height="600"></iframe><div class="cell tag_remove-input docutils container">
+</div>
+<iframe src="sankey_vertebra_Contrato.html" width="800" height="600"></iframe></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CC%26O.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Rendimientos CC&amp;O</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-descriptivo">Análisis descriptivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-ciclos">Comparacion ciclos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesos">Procesos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contratos">Contratos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-general">Actividad general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividad-especifica">Actividad especifica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-entre-variables">Relación entre variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-actividades">Relacion actividades</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-por-proceso">Relación por proceso</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Inteligencia de Negocios & Mercados
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
