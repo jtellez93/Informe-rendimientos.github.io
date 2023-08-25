@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Estructuraci\u00f3n de procesos", "label": "Estructuraci\u00f3n de procesos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Estandarizaci\u00f3n", "label": "Estandarizaci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "label": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n capacitaciones", "label": "Gesti\u00f3n capacitaciones", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Talento humano y ausentismo", "label": "Talento humano y ausentismo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cultura vertebra", "label": "Cultura vertebra", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Ausencia laboral", "label": "Ausencia laboral", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cultura y bienestar", "label": "Cultura y bienestar", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "label": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Reclutamiento", "label": "Reclutamiento", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Entrevista", "label": "Entrevista", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Prueba T\u00e9cnica", "label": "Prueba T\u00e9cnica", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cierre oferta contractual", "label": "Cierre oferta contractual", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de Desvinculaci\u00f3n", "label": "Gesti\u00f3n de Desvinculaci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Despido", "label": "Gesti\u00f3n Despido", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de procesos", "label": "Gesti\u00f3n de procesos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Administrativa TH", "label": "Gesti\u00f3n Administrativa TH", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gestiones internas", "label": "Gestiones internas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Inducci\u00f3n - Reinducci\u00f3n", "label": "Gesti\u00f3n Inducci\u00f3n - Reinducci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n Cultura y Bienestar", "label": "Gesti\u00f3n Cultura y Bienestar", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Consultas y solicitudes", "label": "Consultas y solicitudes", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de correos", "label": "Gesti\u00f3n de correos", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Planeaci\u00f3n Estrat\u00e9gica", "label": "Planeaci\u00f3n Estrat\u00e9gica", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Direcci\u00f3n Equipo", "label": "Direcci\u00f3n Equipo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Alineaci\u00f3n Estrat\u00e9gica", "label": "Alineaci\u00f3n Estrat\u00e9gica", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Seguimiento Talento Humano", "label": "Seguimiento Talento Humano", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n asistencia y programaciones", "label": "Gesti\u00f3n asistencia y programaciones", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Apoyo a los colaboradores", "label": "Apoyo a los colaboradores", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Resultados de actividades", "label": "Resultados de actividades", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Mesa de Trabajo", "label": "Mesa de Trabajo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cronograma de Actividades", "label": "Cronograma de Actividades", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n documentos contractuales", "label": "Gesti\u00f3n documentos contractuales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Nomina", "label": "Nomina", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n de ex\u00e1menes laborales", "label": "Gesti\u00f3n de ex\u00e1menes laborales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Afiliaciones", "label": "Afiliaciones", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Gesti\u00f3n PQRS", "label": "Gesti\u00f3n PQRS", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "SOI", "label": "SOI", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Dotaci\u00f3n", "label": "Dotaci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Onboarding", "label": "Onboarding", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Inducci\u00f3n", "label": "Inducci\u00f3n", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Mejora Continua", "label": "Mejora Continua", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Incapacidad", "label": "Incapacidad", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Tiempo muerto", "label": "Tiempo muerto", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Tiempo obsequiado por Vertebra", "label": "Tiempo obsequiado por Vertebra", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Registro de actividades", "label": "Registro de actividades", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Actividades de bienestar", "label": "Actividades de bienestar", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Break", "label": "Break", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Estructuraci\u00f3n de procesos", "to": "Estandarizaci\u00f3n", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "to": "Gesti\u00f3n capacitaciones", "width": 1}, {"arrows": "to", "from": "Talento humano y ausentismo", "to": "Cultura vertebra", "width": 1}, {"arrows": "to", "from": "Talento humano y ausentismo", "to": "Ausencia laboral", "width": 1}, {"arrows": "to", "from": "Talento humano y ausentismo", "to": "Cultura y bienestar", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "to": "Reclutamiento", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "to": "Entrevista", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "to": "Prueba T\u00e9cnica", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "to": "Cierre oferta contractual", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de Desvinculaci\u00f3n", "to": "Gesti\u00f3n Despido", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n Administrativa TH", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n de Desvinculaci\u00f3n", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gestiones internas", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n de Selecci\u00f3n, Vinculaci\u00f3n y Contrataci\u00f3n", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n Inducci\u00f3n - Reinducci\u00f3n", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n Cultura y Bienestar", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n de procesos", "to": "Gesti\u00f3n Capacitaci\u00f3n y desarrollo", "width": 1}, {"arrows": "to", "from": "Gestiones internas", "to": "Consultas y solicitudes", "width": 1}, {"arrows": "to", "from": "Gestiones internas", "to": "Gesti\u00f3n de correos", "width": 1}, {"arrows": "to", "from": "Planeaci\u00f3n Estrat\u00e9gica", "to": "Direcci\u00f3n Equipo", "width": 1}, {"arrows": "to", "from": "Planeaci\u00f3n Estrat\u00e9gica", "to": "Alineaci\u00f3n Estrat\u00e9gica", "width": 1}, {"arrows": "to", "from": "Alineaci\u00f3n Estrat\u00e9gica", "to": "Seguimiento Talento Humano", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Cultura y Bienestar", "to": "Gesti\u00f3n asistencia y programaciones", "width": 1}, {"arrows": "to", "from": "Direcci\u00f3n Equipo", "to": "Apoyo a los colaboradores", "width": 1}, {"arrows": "to", "from": "Direcci\u00f3n Equipo", "to": "Resultados de actividades", "width": 1}, {"arrows": "to", "from": "Direcci\u00f3n Equipo", "to": "Mesa de Trabajo", "width": 1}, {"arrows": "to", "from": "Direcci\u00f3n Equipo", "to": "Cronograma de Actividades", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Gesti\u00f3n documentos contractuales", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Nomina", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Gesti\u00f3n de ex\u00e1menes laborales", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Afiliaciones", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Gesti\u00f3n PQRS", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "SOI", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Administrativa TH", "to": "Dotaci\u00f3n", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Inducci\u00f3n - Reinducci\u00f3n", "to": "Onboarding", "width": 1}, {"arrows": "to", "from": "Gesti\u00f3n Inducci\u00f3n - Reinducci\u00f3n", "to": "Inducci\u00f3n", "width": 1}, {"arrows": "to", "from": "Estandarizaci\u00f3n", "to": "Mejora Continua", "width": 1}, {"arrows": "to", "from": "Ausencia laboral", "to": "Incapacidad", "width": 1}, {"arrows": "to", "from": "Ausencia laboral", "to": "Tiempo muerto", "width": 1}, {"arrows": "to", "from": "Ausencia laboral", "to": "Tiempo obsequiado por Vertebra", "width": 1}, {"arrows": "to", "from": "Cultura y bienestar", "to": "Registro de actividades", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Actividades de bienestar", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Break", "width": 1}, {"arrows": "to", "from": "Cultura vertebra", "to": "Registro de actividades", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
